@@ -26,10 +26,7 @@ export default function Checkout() {
     requestConfig
   );
 
-  const cartTotal = cartCtx.items.reduce(
-    (totalPrice, item) => totalPrice + item.quantity * item.price,
-    0
-  );
+
 
   function handleClose() {
     userProgressCtx.hideCheckout();
@@ -95,7 +92,7 @@ export default function Checkout() {
     <Modal open={userProgressCtx.progress === "checkout"} onClose={handleClose}>
       <form action={formAction}>
         <h2>Checkout</h2>
-        <p>Total Amount: {currencyFormatter.format(cartTotal)}</p>
+        <p>Total Amount: {currencyFormatter.format(cartCtx.totalAmount)}</p>
 
         <Input label="Full Name" type="text" id="name" />
         <Input label="E-Mail Address" type="email" id="email" />
