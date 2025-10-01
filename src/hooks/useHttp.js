@@ -1,7 +1,8 @@
 import { useCallback, useEffect, useState } from 'react';
+import { BASE_URL } from '../util/constants.js';
 
 async function sendHttpRequest(url, config) {
-  const response = await fetch(url, config);
+  const response = await fetch(BASE_URL + url, config);
 
   const resData = await response.json();
 
