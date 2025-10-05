@@ -1,15 +1,14 @@
 import MealItem from "./MealItem.jsx";
 import useHttp from "../hooks/useHttp.js";
 import Error from "./Error.jsx";
-
-const requestConfig = {};
+import { BASE_URL } from "../util/constants.js";
 
 export default function Meals() {
   const {
     data: loadedMeals,
     isLoading,
     error,
-  } = useHttp("/meals", requestConfig, []);
+  } = useHttp(`${BASE_URL}/meals`, {}, []);
 
   if (isLoading) {
     return <p className="center">Fetching meals...</p>;
